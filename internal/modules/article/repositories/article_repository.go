@@ -27,3 +27,12 @@ func (articleRepository *ArticleRepository) List(limit int) []articleModels.Arti
 	}
 	return articles
 }
+func (articleRepository *ArticleRepository) Find(id int) (articleModels.Article, error) {
+	var article articleModels.Article
+	result := articleRepository.DB.First(&article, id)
+	if result.Error != nil {
+		log.Log.Error("Error fetching article:", result.Error)
+		return articleModels.Article{}, result.Error
+	}
+	return article, nil
+}
