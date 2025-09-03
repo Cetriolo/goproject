@@ -1,7 +1,7 @@
 package html
 
 import (
-	"v2/internal/providers/routes/view"
+	"v2/internal/providers/view"
 
 	"github.com/gin-gonic/gin"
 )
