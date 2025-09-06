@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"v2/pkg/config/boostrap"
+	"v2/pkg/boostrap"
 
 	"github.com/spf13/cobra"
 )

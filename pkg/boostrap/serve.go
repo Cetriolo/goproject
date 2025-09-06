@@ -7,6 +7,7 @@ import (
 	"v2/pkg/database"
 	htmlHandler "v2/pkg/html"
 	"v2/pkg/routing"
+	"v2/pkg/sessions"
 	"v2/pkg/static"
 )
 
@@ -15,6 +16,7 @@ func Serve() {
 	database.Connect()
 	log.Log.Info("Configs: ", config.Get())
 	routing.Init()
+	sessions.Start(routing.GetRouter())
 	static.LoadStaticFiles(routing.GetRouter())
 	htmlHandler.LoadHtml(routing.GetRouter())
 	routing.RegisterRoutes()

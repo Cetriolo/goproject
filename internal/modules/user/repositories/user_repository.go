@@ -30,3 +30,12 @@ func (userRepository *UserRepository) Create(user userModel.User) userModel.User
 	log.Log.Info("User created successfully with ID:", newUser.ID)
 	return newUser
 }
+
+func (userRepository *UserRepository) FindByEmail(email string) userModel.User {
+	var user userModel.User
+
+	userRepository.DB.First(&user, "email = ?", email)
+
+	return user
+
+}
